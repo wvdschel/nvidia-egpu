@@ -10,7 +10,7 @@ over the ExpressCard 2.0 slot, so your mileage may vary. I've only tested it on 
 so far.
 
 # Required software and configuration.
-* GDM 3 and a line reading `"WaylandEnable=false"` or `"#WaylandEnable=false"` in `/etc/gdm3/daemon.conf`.
+* GDM 3 and a line reading `WaylandEnable=false` or `#WaylandEnable=false` in `/etc/gdm3/daemon.conf`.
 * Nvidia proprietary drivers must be installed.
 * You must have a desktop session or Window manager that supports both Xorg and Wayland, or use
   different sessions depending on the plugged in GPU. If you want to use Xorg for both platforms,
