@@ -38,11 +38,25 @@ so far.
   the edge of good enough for the card. Doing this requires `nvidia-smi` and the commands to configure
   power consumption are commented out in `bin/nvidia-toggle-wayland`:
 
-                 # Tell the Nvidia driver to save power consumption configuration
-                 # This does *NOT* persist across reboots, only across Xorg restarts
-                 # or whatever other event triggers the Nvidia card to get suspended.
-                 nvidia-smi -pm 1
-                 # Limit the GPU power draw to 110W. This is the GPU only, and not the
-                 # full board power.
-                 nvidia-smi -pl 110
+      # Tell the Nvidia driver to save power consumption configuration
+      # This does *NOT* persist across reboots, only across Xorg restarts
+      # or whatever other event triggers the Nvidia card to get suspended.
+      nvidia-smi -pm 1
+      # Limit the GPU power draw to 110W. This is the GPU only, and not the
+      # full board power.
+      nvidia-smi -pl 110
 
+* I have compiled Debian packages for the Nvidia 390.67 long term support drivers. At the time of writing,
+  this is two releases newer than the Debian testing/unstable packages (390.48). These packages are based
+  on the code in https://salsa.debian.org/nvidia-team/nvidia-graphics-modules and the instructions at
+  https://wiki.debian.org/NvidiaGraphicsDrivers#Building_newer_releases_from_SVN.
+  To use these drivers, uncomment the repositories listed in `/etc/apt/source.list.d/nvidia-artisanal.list`,
+  and run the following commands:
+
+      sudo apt install apt-transport-https
+      sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 76A5B86C1DFA6542
+      sudo apt update
+
+  and update or install the `nvidia-driver`/`nvidia-driver-libs-i386` packages as normal. Should Debian
+  update the drivers / libraries in the future, they should replace the packages I've built during an
+  upgrade.
