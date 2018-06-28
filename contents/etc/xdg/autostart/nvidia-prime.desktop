@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Nvidia PRIME offloading
+Exec=/usr/bin/nvidia-offload
+NoDisplay=true
+X-GNOME-Autostart-Phase=DisplayServer

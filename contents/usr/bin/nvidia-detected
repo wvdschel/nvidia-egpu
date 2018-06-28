@@ -1,0 +1,2 @@
+#!/bin/bash
+lspci | grep -qi nvidia

@@ -1,0 +1,19 @@
+#!/bin/bash
+if (nvidia-detected); then
+	echo "Switching to X11 (Nvidia card detected)"
+	sed -i -re "s/^#(WaylandEnable=false)/\1/g" /etc/gdm3/daemon.conf
+	#echo 1 > /sys/module/rcutree/parameters/rcu_idle_gp_delay
+	[ -e /etc/X11/xorg.conf ] && cp /etc/X11/xorg.conf /etc/X11/xorg.conf.backup
+	ln -sf /etc/X11/xorg.nvidia.conf /etc/X11/xorg.conf
+	#echo "Setting power limit for Nvidia card"
+	#nvidia-smi -pm 1
+	#nvidia-smi -pl 110
+	sleep 0.5
+else
+	echo "Switching to Wayland."
+	if [[ $(readlink /etc/X11/xorg.conf) == "/etc/X11/xorg.nvidia.conf" ]] ; then
+		echo "Removing xorg.conf"
+		unlink /etc/X11/xorg.conf
+	fi
+	sed -i -re "s/^WaylandEnable=false/#\0/g" /etc/gdm3/daemon.conf
+fi

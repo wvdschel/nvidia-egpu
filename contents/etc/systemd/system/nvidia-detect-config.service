@@ -1,0 +1,11 @@
+[Unit]
+Description="Disable Wayland and configure Xorg when Nvidia cards are present"
+Before=gdm.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/nvidia-detect-config
+
+[Install]
+WantedBy=graphical.target

@@ -1,0 +1,5 @@
+#!/bin/bash
+if (nvidia-detected); then
+	xrandr --setprovideroutputsource modesetting NVIDIA-0
+	xrandr --auto
+fi
