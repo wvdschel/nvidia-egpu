@@ -20,8 +20,8 @@ so far.
   Use `nvidia-smi -q` to list Nvidia GPUs detected by the driver.
 
 # Installation
-1. Install GNU stow
-2. sudo stow -t / -S contents && systemctl daemon-reload && systemctl enable nvidia-detect-config.service
+1. Install GNU stow: `sudo apt install stow`
+2. `sudo stow -t / -S contents && systemctl daemon-reload && systemctl enable nvidia-detect-config.service`
 
 # Uninstall
 1. From the directory where the repository is checked out, run `sudo stow -t / -D contents`.
