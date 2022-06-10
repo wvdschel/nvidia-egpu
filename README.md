@@ -1,3 +1,5 @@
+![image](https://user-images.githubusercontent.com/76032/173039012-0e189b6d-f78d-4c9c-adad-e9daa3a185bf.png)
+
 This repository contains a set of simple scripts and configuration files that help with the
 configuration of your system when using an external Nvidia GPU.
 
